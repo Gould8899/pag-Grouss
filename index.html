@@ -8,15 +8,17 @@
   <style>
     :root {
       color-scheme: dark;
-      --ink: #11110f;
-      --panel: #191916;
-      --panel-soft: #201f1a;
-      --paper: #eee9dd;
-      --muted: #aaa497;
-      --gold: #c9a96b;
-      --line: rgb(238 233 221 / 14%);
-      --serif: Georgia, "Times New Roman", serif;
-      --sans: "Segoe UI", Arial, sans-serif;
+      --ink: #101817;
+      --panel: #172321;
+      --panel-soft: #1d2c29;
+      --paper: #f3ecdf;
+      --muted: #c0b6a4;
+      --gold: #e0b36f;
+      --coral: #d98268;
+      --teal: #79aaa0;
+      --line: rgb(232 221 199 / 18%);
+      --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      --sans: "Aptos", "Segoe UI", Arial, sans-serif;
       --page-width: 1220px;
     }
 
@@ -34,7 +36,8 @@
     body {
       margin: 0;
       background:
-        radial-gradient(ellipse at 78% 8%, rgb(138 102 53 / 12%), transparent 34rem),
+        radial-gradient(ellipse at 82% 7%, rgb(121 170 160 / 14%), transparent 35rem),
+        radial-gradient(ellipse at 8% 48%, rgb(217 130 104 / 7%), transparent 32rem),
         var(--ink);
       color: var(--paper);
       font-family: var(--sans);
@@ -62,7 +65,7 @@
       z-index: 5;
       top: 0;
       border-bottom: 1px solid var(--line);
-      background: rgb(17 17 15 / 92%);
+      background: rgb(16 24 23 / 91%);
       backdrop-filter: blur(16px);
     }
 
@@ -94,6 +97,7 @@
       font-size: 12px;
       letter-spacing: .08em;
       text-decoration: none;
+      text-transform: uppercase;
       transition: color .2s ease;
     }
 
@@ -124,24 +128,6 @@
       padding-block: 28px;
     }
 
-    .eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      margin: 0 0 28px;
-      color: var(--gold);
-      font-size: 11px;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      width: 32px;
-      height: 1px;
-      background: var(--gold);
-      content: "";
-    }
-
     h1,
     h2,
     h3,
@@ -157,12 +143,16 @@
       font-weight: 400;
       letter-spacing: -.055em;
       line-height: .98;
+      background: linear-gradient(112deg, var(--paper) 12%, #e9c98e 64%, #d98c70);
+      background-clip: text;
+      color: transparent;
+      -webkit-background-clip: text;
     }
 
     .hero-intro {
       max-width: 500px;
       margin-bottom: 0;
-      color: #d1cbbf;
+      color: #e0d6c5;
       font-family: var(--serif);
       font-size: clamp(17px, 1.7vw, 21px);
       line-height: 1.75;
@@ -178,7 +168,9 @@
       width: 100%;
       height: auto;
       object-fit: contain;
-      background: #090908;
+      background: #0b1110;
+      border-radius: 3px;
+      box-shadow: 0 30px 80px rgb(0 0 0 / 34%);
     }
 
     .image-zoom {
@@ -206,7 +198,7 @@
 
     figcaption {
       margin-top: 11px;
-      color: var(--muted);
+      color: #c8bda9;
       font-size: 11px;
       letter-spacing: .055em;
     }
@@ -217,16 +209,19 @@
     }
 
     .section-heading {
-      display: grid;
-      grid-template-columns: minmax(180px, .7fr) minmax(0, 1.3fr);
-      align-items: end;
-      gap: 32px;
       margin-bottom: 58px;
     }
 
-    .section-heading .eyebrow {
-      grid-column: 1 / -1;
-      margin-bottom: -15px;
+    #biografia {
+      background: linear-gradient(110deg, rgb(121 170 160 / 5%), transparent 60%);
+    }
+
+    #videos {
+      background: linear-gradient(110deg, rgb(217 130 104 / 6%), transparent 68%);
+    }
+
+    #discos {
+      background: linear-gradient(110deg, rgb(224 179 111 / 5%), transparent 66%);
     }
 
     h2 {
@@ -236,12 +231,13 @@
       font-weight: 400;
       letter-spacing: -.04em;
       line-height: 1.05;
+      color: var(--paper);
     }
 
     .bio-copy {
       max-width: 850px;
       margin-left: auto;
-      color: #d1cbbf;
+      color: #ded4c3;
       font-family: var(--serif);
       font-size: clamp(17px, 1.75vw, 20px);
       line-height: 1.9;
@@ -263,6 +259,7 @@
       max-width: 850px;
       margin-left: auto;
       border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
     .bio-disclosure summary {
@@ -277,6 +274,11 @@
       font-size: 13px;
       letter-spacing: .045em;
       list-style: none;
+      transition: color .2s ease;
+    }
+
+    .bio-disclosure summary:hover {
+      color: var(--coral);
     }
 
     .bio-disclosure summary::-webkit-details-marker {
@@ -321,9 +323,9 @@
       width: 42px;
       height: 42px;
       place-items: center;
-      border: 1px solid var(--line);
+      border: 1px solid rgb(121 170 160 / 34%);
       border-radius: 50%;
-      background: transparent;
+      background: rgb(121 170 160 / 6%);
       color: var(--paper);
       cursor: pointer;
       font: inherit;
@@ -332,9 +334,9 @@
     }
 
     .gallery-navigation button:hover:not(:disabled) {
-      border-color: var(--gold);
-      background: var(--gold);
-      color: var(--ink);
+      border-color: var(--teal);
+      background: var(--teal);
+      color: #101817;
     }
 
     .gallery-navigation button:disabled {
@@ -349,9 +351,13 @@
       padding: 0 0 12px;
       scroll-behavior: smooth;
       scroll-snap-type: x mandatory;
-      scrollbar-color: rgb(201 169 107 / 55%) transparent;
-      scrollbar-width: thin;
+      scrollbar-color: rgb(224 179 111 / 55%) transparent;
       overscroll-behavior-x: contain;
+      scrollbar-width: none;
+    }
+
+    .gallery::-webkit-scrollbar {
+      display: none;
     }
 
     .gallery figure {
@@ -359,6 +365,8 @@
       min-width: 0;
       margin: 0;
       scroll-snap-align: start;
+      overflow: hidden;
+      border-radius: 4px;
     }
 
     .gallery img {
@@ -367,6 +375,7 @@
       object-fit: contain;
       filter: saturate(.82);
       transition: filter .35s ease, transform .5s ease;
+      background: var(--panel);
     }
 
     .gallery .image-zoom {
@@ -399,6 +408,8 @@
       overflow: hidden;
       aspect-ratio: 16 / 9;
       background: var(--panel);
+      border-radius: 5px;
+      box-shadow: 0 14px 34px rgb(0 0 0 / 24%);
     }
 
     .video-thumb img {
@@ -418,7 +429,7 @@
       aspect-ratio: 1;
       place-items: center;
       border-radius: 50%;
-      background: rgb(17 17 15 / 84%);
+      background: rgb(16 24 23 / 88%);
       color: var(--paper);
       font-size: 17px;
       line-height: 1;
@@ -432,6 +443,7 @@
       font-family: var(--serif);
       font-size: clamp(16px, 1.8vw, 20px);
       line-height: 1.45;
+      transition: color .2s ease;
     }
 
     .video-card:hover .video-thumb img,
@@ -442,8 +454,13 @@
 
     .video-card:hover .video-play,
     .video-card:focus-visible .video-play {
-      background: var(--gold);
-      color: var(--ink);
+      background: var(--coral);
+      color: #171311;
+    }
+
+    .video-card:hover .video-name,
+    .video-card:focus-visible .video-name {
+      color: var(--gold);
     }
 
     .album-grid {
@@ -469,6 +486,8 @@
       height: auto;
       aspect-ratio: 1;
       overflow: hidden;
+      border-radius: 4px;
+      box-shadow: 0 16px 36px rgb(0 0 0 / 28%);
     }
 
     .album-card .image-zoom:hover img {
@@ -483,6 +502,7 @@
       font-size: 17px;
       line-height: 1.5;
       text-decoration: none;
+      transition: color .2s ease;
     }
 
     a.album-name:hover {
@@ -613,8 +633,10 @@
       min-height: 54px;
       align-items: center;
       padding: 11px 18px;
-      border: 1px solid var(--line);
-      color: #d1cbbf;
+      border: 1px solid rgb(121 170 160 / 26%);
+      border-radius: 3px;
+      background: rgb(121 170 160 / 4%);
+      color: #e0d6c5;
       font-size: 14px;
       text-decoration: none;
       overflow-wrap: anywhere;
@@ -622,8 +644,8 @@
     }
 
     .contact-links a:hover {
-      border-color: var(--gold);
-      color: var(--gold);
+      border-color: var(--coral);
+      color: var(--coral);
     }
 
     .site-footer {
@@ -696,13 +718,7 @@
       }
 
       .section-heading {
-        grid-template-columns: 1fr;
-        gap: 18px;
         margin-bottom: 38px;
-      }
-
-      .section-heading .eyebrow {
-        margin-bottom: 0;
       }
 
       .bio-copy {
@@ -823,7 +839,6 @@
   <main>
     <section class="shell hero" id="inicio" aria-labelledby="nombre">
       <div class="hero-copy">
-        <p class="eyebrow">Presentación</p>
         <h1 id="nombre">Ismael Grossman</h1>
         <p class="hero-intro">Guitarrista y compositor argentino referente en la escena actual de la música popular y el tango instrumental. Con un estilo único que entrelaza la tradición con las búsquedas sonoras modernas, ha consolidado una prestigiosa trayectoria tanto en proyectos colectivos como en su faceta solista.</p>
       </div>
@@ -838,7 +853,6 @@
     <section class="section" id="biografia" aria-labelledby="biografia-titulo">
       <div class="shell">
         <div class="section-heading">
-          <p class="eyebrow">Ismael Grossman</p>
           <h2 id="biografia-titulo">Biografía</h2>
         </div>
         <div class="bio-copy bio-preview">
@@ -896,7 +910,6 @@
     <section class="section" id="videos" aria-labelledby="videos-titulo">
       <div class="shell">
         <div class="section-heading">
-          <p class="eyebrow">Videos de YouTube</p>
           <h2 id="videos-titulo">Videos de YouTube</h2>
         </div>
         <div class="video-grid">
@@ -935,7 +948,6 @@
     <section class="section" id="discos" aria-labelledby="discos-titulo">
       <div class="shell">
         <div class="section-heading">
-          <p class="eyebrow">discos</p>
           <h2 id="discos-titulo">discos</h2>
         </div>
         <div class="album-grid">
@@ -994,7 +1006,6 @@
     <section class="section contact-section" id="contacto" aria-labelledby="contacto-titulo">
       <div class="shell">
         <div class="section-heading">
-          <p class="eyebrow">CONTACTO</p>
           <h2 id="contacto-titulo">CONTACTO</h2>
         </div>
         <div class="contact-links">

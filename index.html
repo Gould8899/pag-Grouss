@@ -265,19 +265,22 @@
     }
 
     .gallery img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
       filter: saturate(.82);
       transition: filter .35s ease, transform .5s ease;
-      background: var(--panel);
     }
 
     .gallery .image-zoom {
-      display: grid;
-      aspect-ratio: 4 / 3;
-      place-items: center;
+      display: flex;
+      aspect-ratio: 1;
+      max-height: 360px;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
+      background: #f4e7e2;
     }
 
     .gallery .image-zoom:hover img {
@@ -377,7 +380,8 @@
       transition: filter .25s ease;
     }
 
-    .album-card .image-zoom {
+    .album-card .album-cover {
+      display: block;
       height: auto;
       aspect-ratio: 1;
       overflow: hidden;
@@ -385,7 +389,7 @@
       box-shadow: 0 16px 36px rgb(0 0 0 / 28%);
     }
 
-    .album-card .image-zoom:hover img {
+    .album-card .album-cover:hover img {
       filter: brightness(1.12);
     }
 
@@ -495,16 +499,6 @@
       color: var(--muted);
       font-size: 13px;
       text-align: center;
-    }
-
-    .image-viewer-spotify {
-      color: var(--accent);
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .image-viewer-spotify:hover {
-      text-decoration: underline;
     }
 
     .image-viewer button:focus-visible {
@@ -648,10 +642,6 @@
       .image-viewer-caption {
         flex-wrap: wrap;
         gap: 4px 12px;
-      }
-
-      .image-viewer-spotify {
-        font-size: 12px;
       }
 
       .video-grid {
@@ -856,10 +846,6 @@
       box-shadow: 0 14px 36px rgb(37 33 31 / 9%);
     }
 
-    .gallery img {
-      background: #e9e1d8;
-    }
-
     figcaption {
       color: #6e655f;
     }
@@ -931,7 +917,7 @@
       box-shadow: 0 18px 40px rgb(37 33 31 / 13%);
     }
 
-    .album-card .image-zoom {
+    .album-card .album-cover {
       border-radius: 6px;
       box-shadow: none;
     }
@@ -985,6 +971,16 @@
 
     .contact-links .instagram-link {
       gap: 10px;
+      border-color: #fff8f2;
+      background: #fff8f2;
+      color: #49304f;
+      font-weight: 600;
+    }
+
+    .contact-links .instagram-link:hover {
+      border-color: #ffd0a8;
+      background: #ffd0a8;
+      color: #49304f;
     }
 
     .instagram-icon {
@@ -1004,10 +1000,6 @@
 
     .image-viewer-caption {
       color: #eee8e3;
-    }
-
-    .image-viewer-spotify {
-      color: #f1b58e;
     }
 
     @media (max-width: 900px) {
@@ -1209,18 +1201,10 @@
       color: #504657;
     }
 
-    .image-viewer-spotify {
-      color: var(--accent);
-    }
-
     .gallery figure {
       border-radius: 12px;
       background: var(--panel);
       box-shadow: 0 14px 36px rgb(80 47 75 / 9%);
-    }
-
-    .gallery img {
-      background: #f4e7e2;
     }
 
     figcaption {
@@ -1302,10 +1286,6 @@
       color: #fff0e8;
     }
 
-    .image-viewer-spotify:hover {
-      color: #ffd0a8;
-    }
-
     .image-viewer button:focus-visible {
       outline-color: var(--accent-warm);
     }
@@ -1328,8 +1308,8 @@
       <a class="wordmark" href="#inicio">Ismael Grossman</a>
       <nav class="navigation" aria-label="Navegación">
         <a href="#biografia">Biografía</a>
-        <a href="#videos">Videos de YouTube</a>
         <a href="#discos">Discos</a>
+        <a href="#videos">Videos de YouTube</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
@@ -1360,31 +1340,34 @@
           <h2 id="biografia-titulo">Biografía</h2>
         </div>
         <div class="bio-copy">
-          <p>Ismael Grossman es un guitarrista, compositor y docente argentino de amplia trayectoria internacional,
-            especializado en la guitarra clásica y tango contemporáneo. Su enfoque del instrumento combina una
+          <p> Ismael Grossman es un guitarrista, compositor y docente argentino de amplia trayectoria internacional,
+            especializado en la guitarra clásica y el Tango contemporáneo. Su enfoque del instrumento combina una
             interpretación de alto nivel con una profunda labor pedagógica y de investigación musical. Egresado como
             Músico Profesional de la Escuela de Música Popular de Avellaneda (EMPA) y formado en el Conservatorio
             Superior de Música "Manuel de Falla", ha perfeccionado su arte junto a grandes maestros como Irma Costanzo,
-            Ricardo Lew, Armando Alonso, Héctor Romero, y en disciplinas de análisis, contrapunto y escritura con
-            Gabriel Senanes y Daniel Montalto.</p>
-            <p>Desde 2009, es el guitarrista estable del Diego Schissi Quinteto, una de las agrupaciones más influyentes
-              de la vanguardia del tango, con la que obtuvo el prestigioso Latin Grammy 2024 al Mejor Álbum de Tango por
-              el disco Apiazolado, además de haber sido galardonado con los premios Gardel en 2013 y 2017. Junto a este
-              ensamble ha editado una prolífica discografía (que incluye álbumes fundamentales como Tongos, Tipas y
-              Tipos y Te) y ha realizado extensas giras internacionales presentándose en importantes escenarios de
-              Europa, Estados Unidos y Latinoamérica, así como en los prestigiosos escenarios argentinos del Teatro
-              Colón y el CCK.</p>
-            <p>Como solista y director de sus propios proyectos, su versatilidad lo ha llevado a actuar junto a
-              orquestas de cuerdas en Italia y Argentina interpretando la obra de Astor Piazzolla, a ser guitarrista en
-              la ópera Don Pasquale en el Teatro Colón, y a colaborar con reconocidos artistas como Aca Seca Trío,
-              Benjamín Báez. En su producción discográfica independiente destacan sus álbumes Confluencia, Construcción
-              (en dúo con Nicolás Gaggero) y su disco solista Cosas.</p>
-            <p>Toda esta experiencia en estudios de grabación y escenarios del mundo confluye en una sólida labor
-              docente. Ismael ha volcado su conocimiento en el ámbito universitario y terciario, dictando el curso "Los
-              límites del Tango" en la Escuela Universitaria de Música de Montevideo, ejerciendo como profesor de
-              ensambles en la UNLP (ex ESMA), ofreciendo clínicas en la Universidad de Panamá y desempeñándose como
-              profesor titular en instituciones de nivel medio, consolidándose así como un formador clave para las
-              nuevas generaciones de músicos.</p>
+            Ricardo Lew, Armando Alonso, Esteban González Carbone, Miguel de Olaso y Héctor Romero y en disciplinas de
+            análisis y contrapunto con Gabriel Senanes y Daniel Montalto.
+          </p>
+          <p>Desde 2009, es el guitarrista estable del Diego Schissi Quinteto, una de las agrupaciones más influyentes
+            de la vanguardia del tango, con la que obtuvo el prestigioso Latin Grammy 2024 al Mejor Álbum de Tango por
+            el disco Apiazolado, además de haber sido galardonado con los premios Gardel en 2013 y 2017. Junto a este
+            ensamble ha editado una prolífica discografía (que incluye álbumes fundamentales como Tongos, Tipas y Tipos
+            y Te) y ha realizado extensas giras internacionales presentándose en importantes escenarios de Europa,
+            Estados Unidos y Latinoamérica, así como en los prestigiosos escenarios argentinos del Teatro Colón y el
+            CCK.
+          </p>
+          <p>Como solista y director de sus propios proyectos, su versatilidad lo ha llevado a actuar junto a orquestas
+            de cuerdas en Italia y Argentina interpretando la obra de Astor Piazzolla, a ser guitarrista en la ópera Don
+            Pasquale en el Teatro Colón, y a colaborar con reconocidos artistas como el guitarrista Alan Plachta, Aca
+            Seca Trío y el cellista Benjamín Báez. En su producción discográfica independiente destacan sus álbumes
+            Confluencia, Construcción (en dúo con Nicolás Gaggero) y su disco solista Cosas.</p>
+          <p>Toda esta experiencia en estudios de grabación y escenarios del mundo confluye en una sólida labor docente.
+            Ismael ha volcado su conocimiento en el ámbito universitario y terciario, dictando el curso "Los límites del
+            Tango" en la Escuela Universitaria de Música de Montevideo, ejerciendo como profesor de ensambles en la UNLP
+            (ex ESMA), ofreciendo clínicas en la Universidad de Panamá y desempeñándose como profesor titular en
+            instituciones de nivel medio, consolidándose así como un formador clave para las nuevas generaciones de
+            músicos.
+          </p>
         </div>
       </div>
     </section>
@@ -1434,24 +1417,24 @@
           <figure>
             <button class="image-zoom" type="button" data-image="fotos-web-grosmin/Caf%C3%A9%20vinilo%202015.jpg"
               data-caption="Café vinilo 2015" aria-label="Ampliar fotografía: Café vinilo 2015">
-              <img src="fotos-web-grosmin/Caf%C3%A9%20vinilo%202015.jpg" alt="Café vinilo 2015"
-                width="4352" height="3264" loading="lazy" decoding="async">
+              <img src="fotos-web-grosmin/Caf%C3%A9%20vinilo%202015.jpg" alt="Café vinilo 2015" width="4352"
+                height="3264" loading="lazy" decoding="async">
             </button>
             <figcaption>Café vinilo 2015</figcaption>
           </figure>
           <figure>
             <button class="image-zoom" type="button" data-image="fotos-web-grosmin/CCK%202022.jpg"
               data-caption="CCK 2022" aria-label="Ampliar fotografía: CCK 2022">
-              <img src="fotos-web-grosmin/CCK%202022.jpg" alt="CCK 2022" width="7953" height="5302"
-                loading="lazy" decoding="async">
+              <img src="fotos-web-grosmin/CCK%202022.jpg" alt="CCK 2022" width="7953" height="5302" loading="lazy"
+                decoding="async">
             </button>
             <figcaption>CCK 2022</figcaption>
           </figure>
           <figure>
             <button class="image-zoom" type="button" data-image="fotos-web-grosmin/CCK2%202022.jpg"
               data-caption="CCK2 2022" aria-label="Ampliar fotografía: CCK2 2022">
-              <img src="fotos-web-grosmin/CCK2%202022.jpg" alt="CCK2 2022" width="5504" height="5504"
-                loading="lazy" decoding="async">
+              <img src="fotos-web-grosmin/CCK2%202022.jpg" alt="CCK2 2022" width="5504" height="5504" loading="lazy"
+                decoding="async">
             </button>
             <figcaption>CCK2 2022</figcaption>
           </figure>
@@ -1459,16 +1442,16 @@
             <button class="image-zoom" type="button"
               data-image="fotos-web-grosmin/Grabaci%C3%B3n%20Contrucci%C3%B3n%202021.jpg"
               data-caption="Grabación Contrucción 2021" aria-label="Ampliar fotografía: Grabación Contrucción 2021">
-              <img src="fotos-web-grosmin/Grabaci%C3%B3n%20Contrucci%C3%B3n%202021.jpg"
-                alt="Grabación Contrucción 2021" width="2048" height="1536" loading="lazy" decoding="async">
+              <img src="fotos-web-grosmin/Grabaci%C3%B3n%20Contrucci%C3%B3n%202021.jpg" alt="Grabación Contrucción 2021"
+                width="2048" height="1536" loading="lazy" decoding="async">
             </button>
             <figcaption>Grabación Contrucción 2021</figcaption>
           </figure>
           <figure>
-            <button class="image-zoom" type="button" data-image="fotos-web-grosmin/Grabando.png"
-              data-caption="Grabando" aria-label="Ampliar fotografía: Grabando">
-              <img src="fotos-web-grosmin/Grabando.png" alt="Grabando" width="382" height="604"
-                loading="lazy" decoding="async">
+            <button class="image-zoom" type="button" data-image="fotos-web-grosmin/Grabando.png" data-caption="Grabando"
+              aria-label="Ampliar fotografía: Grabando">
+              <img src="fotos-web-grosmin/Grabando.png" alt="Grabando" width="382" height="604" loading="lazy"
+                decoding="async">
             </button>
             <figcaption>Grabando</figcaption>
           </figure>
@@ -1485,8 +1468,8 @@
           <figure>
             <button class="image-zoom" type="button" data-image="fotos-web-grosmin/Usina%20del%20arte%202017.jpg"
               data-caption="Usina del arte 2017" aria-label="Ampliar fotografía: Usina del arte 2017">
-              <img src="fotos-web-grosmin/Usina%20del%20arte%202017.jpg" alt="Usina del arte 2017"
-                width="552" height="379" loading="lazy" decoding="async">
+              <img src="fotos-web-grosmin/Usina%20del%20arte%202017.jpg" alt="Usina del arte 2017" width="552"
+                height="379" loading="lazy" decoding="async">
             </button>
             <figcaption>Usina del arte 2017</figcaption>
           </figure>
@@ -1552,102 +1535,88 @@
         </div>
         <div class="album-grid">
           <article class="album-card">
-            <button class="image-zoom" type="button"
-              data-image="fotos-web-grosmin/Confluencia%202005.JPG"
-              data-caption="Confluencia · IG (2005)"
-              data-spotify="https://open.spotify.com/intl-es/album/3hNzLYaKiokGeLcmO5jDmQ?si=ZJ6dFmuVRXKlRprWxI1Y-Q"
-              aria-label="Ampliar portada de Confluencia · IG (2005)">
-              <img src="fotos-web-grosmin/Confluencia%202005.JPG"
-                alt="Portada de Confluencia" width="3000" height="3000" loading="lazy" decoding="async">
-            </button>
+            <a class="album-cover"
+              href="https://open.spotify.com/intl-es/album/3hNzLYaKiokGeLcmO5jDmQ?si=ZJ6dFmuVRXKlRprWxI1Y-Q"
+              target="_blank" rel="noopener noreferrer" aria-label="Escuchar Confluencia · IG (2005) en Spotify">
+              <img src="fotos-web-grosmin/Confluencia%202005.JPG" alt="Portada de Confluencia" width="3000"
+                height="3000" loading="lazy" decoding="async">
+            </a>
             <a class="album-name"
               href="https://open.spotify.com/intl-es/album/3hNzLYaKiokGeLcmO5jDmQ?si=ZJ6dFmuVRXKlRprWxI1Y-Q"
               target="_blank" rel="noopener noreferrer">Confluencia · IG (2005)</a>
           </article>
           <article class="album-card">
-            <button class="image-zoom" type="button"
-              data-image="fotos-web-grosmin/Cosas%202015.jpg"
-              data-caption="Cosas · IG (2015)"
-              data-spotify="https://open.spotify.com/intl-es/album/0C29jgtftvajcbjg5HMrGv?si=rUhGQPvnSmCz7sv54Q4eUA"
-              aria-label="Ampliar portada de Cosas · IG (2015)">
-              <img src="fotos-web-grosmin/Cosas%202015.jpg"
-                alt="Portada de Cosas" width="1646" height="1480" loading="lazy" decoding="async">
-            </button>
+            <a class="album-cover"
+              href="https://open.spotify.com/intl-es/album/0C29jgtftvajcbjg5HMrGv?si=rUhGQPvnSmCz7sv54Q4eUA"
+              target="_blank" rel="noopener noreferrer" aria-label="Escuchar Cosas · IG (2015) en Spotify">
+              <img src="fotos-web-grosmin/Cosas%202015.jpg" alt="Portada de Cosas" width="1646" height="1480"
+                loading="lazy" decoding="async">
+            </a>
             <a class="album-name"
               href="https://open.spotify.com/intl-es/album/0C29jgtftvajcbjg5HMrGv?si=rUhGQPvnSmCz7sv54Q4eUA"
               target="_blank" rel="noopener noreferrer">Cosas · IG (2015)</a>
           </article>
           <article class="album-card">
-            <button class="image-zoom" type="button"
-              data-image="fotos-web-grosmin/Construcci%C3%B3n%202022.jpg"
-              data-caption="Construcción · IG (2022)"
-              data-spotify="https://open.spotify.com/intl-es/album/1ERudk2BiBgrJF7ezl5cEI?si=hzgP0GXDRjiM63BMaUWI1Q"
-              aria-label="Ampliar portada de Construcción · IG (2022)">
-              <img src="fotos-web-grosmin/Construcci%C3%B3n%202022.jpg"
-                alt="Portada de Construcción" width="4000" height="4000" loading="lazy" decoding="async">
-            </button>
+            <a class="album-cover"
+              href="https://open.spotify.com/intl-es/album/1ERudk2BiBgrJF7ezl5cEI?si=hzgP0GXDRjiM63BMaUWI1Q"
+              target="_blank" rel="noopener noreferrer" aria-label="Escuchar Construcción · IG (2022) en Spotify">
+              <img src="fotos-web-grosmin/Construcci%C3%B3n%202022.jpg" alt="Portada de Construcción" width="4000"
+                height="4000" loading="lazy" decoding="async">
+            </a>
             <a class="album-name"
               href="https://open.spotify.com/intl-es/album/1ERudk2BiBgrJF7ezl5cEI?si=hzgP0GXDRjiM63BMaUWI1Q"
               target="_blank" rel="noopener noreferrer">Construcción · IG (2022)</a>
           </article>
           <article class="album-card">
-            <button class="image-zoom" type="button"
-              data-image="fotos-web-grosmin/Tercera%20persona%202026.jpg"
-              data-caption="Tercera persona (2026)"
-              data-spotify="https://open.spotify.com/intl-es/album/0Z5f7g8xZPmWG3L8TL3xIN?si=bFTaQT_yS8O9Sl4WwDYiIQ"
-              aria-label="Ampliar portada de Tercera persona (2026)">
-              <img src="fotos-web-grosmin/Tercera%20persona%202026.jpg"
-                alt="Portada Tercera persona 2026" width="3000" height="3000" loading="lazy" decoding="async">
-            </button>
-            <a class="album-name" href="https://open.spotify.com/intl-es/album/0Z5f7g8xZPmWG3L8TL3xIN?si=bFTaQT_yS8O9Sl4WwDYiIQ"
+            <a class="album-cover"
+              href="https://open.spotify.com/intl-es/album/0Z5f7g8xZPmWG3L8TL3xIN?si=bFTaQT_yS8O9Sl4WwDYiIQ"
+              target="_blank" rel="noopener noreferrer" aria-label="Escuchar Tercera persona (2026) en Spotify">
+              <img src="fotos-web-grosmin/Tercera%20persona%202026.jpg" alt="Portada Tercera persona 2026" width="3000"
+                height="3000" loading="lazy" decoding="async">
+            </a>
+            <a class="album-name"
+              href="https://open.spotify.com/intl-es/album/0Z5f7g8xZPmWG3L8TL3xIN?si=bFTaQT_yS8O9Sl4WwDYiIQ"
               target="_blank" rel="noopener noreferrer">Tercera persona (2026)</a>
           </article>
           <article class="album-card">
-            <button class="image-zoom" type="button"
-              data-image="https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0283edd756793e055015eb8e99"
-              data-caption="Hermanos · DSQ / Aca Seca (2014)"
-              data-spotify="https://open.spotify.com/album/0ahYchbewTRHik5wdBPV1S?si=bzupzyX9SZayXVf8Y0g6MQ"
-              aria-label="Ampliar portada de Hermanos · DSQ / Aca Seca (2014)">
+            <a class="album-cover"
+              href="https://open.spotify.com/album/0ahYchbewTRHik5wdBPV1S?si=bzupzyX9SZayXVf8Y0g6MQ" target="_blank"
+              rel="noopener noreferrer" aria-label="Escuchar Hermanos · DSQ / Aca Seca (2014) en Spotify">
               <img src="https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0283edd756793e055015eb8e99"
                 alt="Portada de Hermanos" width="300" height="300" loading="lazy" decoding="async">
-            </button>
+            </a>
             <a class="album-name" href="https://open.spotify.com/album/0ahYchbewTRHik5wdBPV1S?si=bzupzyX9SZayXVf8Y0g6MQ"
               target="_blank" rel="noopener noreferrer">Hermanos · DSQ / Aca Seca (2014)</a>
           </article>
           <article class="album-card">
-            <button class="image-zoom" type="button"
-              data-image="https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e023cd23046be01f95111999234"
-              data-caption="Timba · DSQ (2016)"
-              data-spotify="https://open.spotify.com/album/60oCrd0kCW5cGonhbbknYs?si=Ol8T7MHHQHyNZ-BUQhHvbg"
-              aria-label="Ampliar portada de Timba · DSQ (2016)">
+            <a class="album-cover"
+              href="https://open.spotify.com/album/60oCrd0kCW5cGonhbbknYs?si=Ol8T7MHHQHyNZ-BUQhHvbg" target="_blank"
+              rel="noopener noreferrer" aria-label="Escuchar Timba · DSQ (2016) en Spotify">
               <img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e023cd23046be01f95111999234"
                 alt="Portada de Timba" width="300" height="300" loading="lazy" decoding="async">
-            </button>
+            </a>
             <a class="album-name" href="https://open.spotify.com/album/60oCrd0kCW5cGonhbbknYs?si=Ol8T7MHHQHyNZ-BUQhHvbg"
               target="_blank" rel="noopener noreferrer">Timba · DSQ (2016)</a>
           </article>
           <article class="album-card">
-            <button class="image-zoom" type="button"
-              data-image="https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e027c492ea6c59b19bef21be630"
-              data-caption="Klein, Schissi, Navarro · SurdelSur Ensamble"
-              data-spotify="https://open.spotify.com/intl-es/album/3VEEqqigrOfnI3pIqTbDn7?si=-YZS2RdVSTmtjs_vkcMM1w"
-              aria-label="Ampliar portada de Klein, Schissi, Navarro · SurdelSur Ensamble">
+            <a class="album-cover"
+              href="https://open.spotify.com/intl-es/album/3VEEqqigrOfnI3pIqTbDn7?si=-YZS2RdVSTmtjs_vkcMM1w"
+              target="_blank" rel="noopener noreferrer"
+              aria-label="Escuchar Klein, Schissi, Navarro · SurdelSur Ensamble en Spotify">
               <img src="https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e027c492ea6c59b19bef21be630"
                 alt="Portada de Klein - Schissi - Navarro" width="300" height="300" loading="lazy" decoding="async">
-            </button>
+            </a>
             <a class="album-name"
               href="https://open.spotify.com/intl-es/album/3VEEqqigrOfnI3pIqTbDn7?si=-YZS2RdVSTmtjs_vkcMM1w"
               target="_blank" rel="noopener noreferrer">Klein, Schissi, Navarro · SurdelSur Ensamble</a>
           </article>
           <article class="album-card">
-            <button class="image-zoom" type="button"
-              data-image="https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0264b77d43d9052b391f8c44cf"
-              data-caption="Apiazolado · DSQ (2023)"
-              data-spotify="https://open.spotify.com/intl-es/album/4KjyfzgJvDXFJa9pvMncVl?si=ztCYx1a_QB-0_VVq1vY27A"
-              aria-label="Ampliar portada de Apiazolado · DSQ (2023)">
+            <a class="album-cover"
+              href="https://open.spotify.com/intl-es/album/4KjyfzgJvDXFJa9pvMncVl?si=ztCYx1a_QB-0_VVq1vY27A"
+              target="_blank" rel="noopener noreferrer" aria-label="Escuchar Apiazolado · DSQ (2023) en Spotify">
               <img src="https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0264b77d43d9052b391f8c44cf"
                 alt="Portada de Apiazolado" width="300" height="300" loading="lazy" decoding="async">
-            </button>
+            </a>
             <a class="album-name"
               href="https://open.spotify.com/intl-es/album/4KjyfzgJvDXFJa9pvMncVl?si=ztCYx1a_QB-0_VVq1vY27A"
               target="_blank" rel="noopener noreferrer">Apiazolado · DSQ (2023)</a>
@@ -1663,7 +1632,7 @@
         </div>
         <div class="contact-links">
           <a href="mailto:ismaelgrossman@gmail.com">ismaelgrossman@gmail.com</a>
-          <a class="instagram-link" href="https://www.instagram.com/ismaelgrossman/?hl=es" target="_blank"
+          <a class="instagram-link" href="https://www.instagram.com/ismaelgrossman/" target="_blank"
             rel="noopener noreferrer">
             <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
@@ -1671,7 +1640,7 @@
               <circle cx="12" cy="12" r="4"></circle>
               <circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"></circle>
             </svg>
-            <span>Instagram</span>
+            <span>Instagram: @ismaelgrossman</span>
           </a>
         </div>
       </div>
@@ -1684,7 +1653,6 @@
     <button class="image-viewer-nav image-viewer-next" type="button" aria-label="Ver imagen siguiente">→</button>
     <p class="image-viewer-caption">
       <span id="image-viewer-caption" aria-live="polite"></span>
-      <a class="image-viewer-spotify" href="#" target="_blank" rel="noopener noreferrer" hidden>Abrir en Spotify ↗</a>
     </p>
   </dialog>
   <footer class="site-footer" aria-hidden="true"></footer>
@@ -1692,7 +1660,6 @@
     const imageViewer = document.querySelector(".image-viewer");
     const viewerImage = imageViewer.querySelector(".image-viewer-image");
     const viewerCaption = imageViewer.querySelector("#image-viewer-caption");
-    const viewerSpotify = imageViewer.querySelector(".image-viewer-spotify");
     const viewerClose = imageViewer.querySelector(".image-viewer-close");
     const viewerPrevious = imageViewer.querySelector(".image-viewer-previous");
     const viewerNext = imageViewer.querySelector(".image-viewer-next");
@@ -1705,14 +1672,6 @@
       viewerImage.src = trigger.dataset.image;
       viewerImage.alt = trigger.dataset.caption;
       viewerCaption.textContent = trigger.dataset.caption;
-
-      if (trigger.dataset.spotify) {
-        viewerSpotify.href = trigger.dataset.spotify;
-        viewerSpotify.hidden = false;
-      } else {
-        viewerSpotify.removeAttribute("href");
-        viewerSpotify.hidden = true;
-      }
 
       if (!imageViewer.open) {
         openingImageTrigger = trigger;
